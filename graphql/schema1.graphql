@@ -1,0 +1,9 @@
+  type odomm{
+    name : String! 
+    age : Int!
+    gender : String!
+  }
+
+  type Query {
+     person : odomm!
+  }

@@ -1,0 +1,12 @@
+  type Person{
+    id : Int!
+    name : String! 
+    age : Int!
+    gender : String!
+  }
+
+  type Query {
+     people: [Person]!
+     # Int인 id로 하나의 person 찾는다.
+     person(id: Int!): Person
+  }

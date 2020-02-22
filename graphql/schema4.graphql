@@ -1,0 +1,21 @@
+  type Movie{
+    id : Int!
+    title : String!
+    rating : Float!
+    summary : String
+    language : String
+    
+  }
+
+  type Query {
+    movies: [Movie]!
+    movie(id: Int!) : Movie 
+  }
+
+  # db 상태 변할 때 Mutation 사용 
+  # Movie 리턴 
+  # delete는 삭제 여부 리턴 
+  type Mutation{
+      addMovie(title :String!, rating :Float!) : Movie!
+      deleteMovie(id :Int!) : Boolean!
+  }
