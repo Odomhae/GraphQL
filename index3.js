@@ -1,3 +1,4 @@
+// id로 검색하기 
 const {GraphQLServer} = require('graphql-yoga');
 
 
@@ -37,25 +38,13 @@ const getById = id =>{
     return filteredMovie[0];
 };
 
-const deleteMovie = id =>{
-    const cleanedMovies = movies.filter(Movie => Movie.id !== id);
-    if(movies.length > cleanedMovies.length){
-        movie = cleanedMovies;
-        return true;
-    }else{
-        return false;
-    }
-};
-
-
 const getMovies = () => movies;
 
 const resolvers = {
     Query: {
         movies : () => getMovies(),
         movie : (_, {id}) =>getById(id)
-    },
-    
+    }
 }
 
 

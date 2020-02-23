@@ -35,12 +35,16 @@ const movies = [
 
 const getById = id =>{
     // id에 해당하는 1번째 사람 리턴 
-    const filteredMovie = movies.filter(Movie => Movie.id === id);
+    const filteredMovie = movies.filter(movie => movie.id === id);
     return filteredMovie[0];
 };
 
 const deleteMovie = id =>{
     const cleanedMovies = movies.filter(Movie => Movie.id !== id);
+
+    console.log('id :'+id);
+    console.log('movies.length ,cleanedMovies.length '+movies.length + ', '+cleanedMovies.length);
+
     if(movies.length > cleanedMovies.length){
         movies = cleanedMovies;
         return true;
@@ -51,7 +55,7 @@ const deleteMovie = id =>{
 
 const addMovie = (title, rating) =>{
     const newMovie = {
-        id:  parseInt((Math.random()*100)/10),
+        id: `${movies.length +1}`, //parseInt((Math.random()*100)/10),
         title,
         rating
     };
@@ -60,7 +64,7 @@ const addMovie = (title, rating) =>{
 };
 
 
-const getMovies = () =>movies;
+const getMovies = () => movies;
 
 const resolvers = {
     Query: {
